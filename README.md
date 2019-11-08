@@ -1,2 +1,2 @@
 # DownloadSort
-This script just sort the download folder when executed.
+This script just sort the current folder when executed.
