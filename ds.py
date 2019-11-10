@@ -11,8 +11,7 @@ TO_OFFICE = '05-Office'
 TO_ZIP = '06-Zip'
 TO_TXT = '07-Txt'
 
-folder_to_sort = os.getcwd()   #  path.expanduser('~Downloads')
-file_list = os.listdir(folder_to_sort)
+
 
 
 def move_file_to(file_path, folder_dest):
@@ -33,32 +32,38 @@ def move_file_to(file_path, folder_dest):
     print('To: ' + dest_file)
     shutil.move(file_path, dest_file)
 
-
-for file in os.listdir(folder_to_sort):
-    if file.lower().endswith((".jpg", ".gif", ".jpeg", "bmp", ".png")):
-        file_path = os.path.join(folder_to_sort, file)
-        move_file_to(file_path, os.path.join(folder_to_sort, TO_IMAGES))
-    elif file.lower().endswith((".mp4", ".avi", ".mpg", "mpeg")):
-        file_path = os.path.join(folder_to_sort, file)
-        move_file_to(file_path, os.path.join(folder_to_sort, TO_VIDEOS))
-    elif file.lower().endswith((".exe", ".com", ".msi")):
-        file_path = os.path.join(folder_to_sort, file)
-        move_file_to(file_path, os.path.join(folder_to_sort, TO_EXE))
-    elif file.lower().endswith((".iso")):
-        file_path = os.path.join(folder_to_sort, file)
-        move_file_to(file_path, os.path.join(folder_to_sort, TO_ISO))
-    elif file.lower().endswith((".doc", ".xls", ".xlsx", ".docx",".pdf")):
-        file_path = os.path.join(folder_to_sort, file)
-        move_file_to(file_path, os.path.join(folder_to_sort, TO_OFFICE))
-    # the only startswith of the project
-    elif file.lower().startswith(("securemedias")):
-        file_path = os.path.join(folder_to_sort, file)
-        move_file_to(file_path, os.path.join(folder_to_sort, TO_LOGS))
-    elif file.lower().endswith((".zip", ".7z", ".rar", ".tgz")):
-        file_path = os.path.join(folder_to_sort, file)
-        move_file_to(file_path, os.path.join(folder_to_sort, TO_ZIP))
-    elif file.lower().endswith((".csv", ".txt", ".me", ".ini")):
-        file_path = os.path.join(folder_to_sort, file)
-        move_file_to(file_path, os.path.join(folder_to_sort, TO_TXT))
+def main():
+    folder_to_sort = os.getcwd()
+    # folder_to_sort = os.path.expanduser('c:/users/pepino/Downloads')
 
 
+    for file in os.listdir(folder_to_sort):
+        if file.lower().endswith((".jpg", ".gif", ".jpeg", "bmp", ".png")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_IMAGES))
+        elif file.lower().endswith((".mp4", ".avi", ".mpg", "mpeg")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_VIDEOS))
+        elif file.lower().endswith((".exe", ".com", ".msi")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_EXE))
+        elif file.lower().endswith((".iso")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_ISO))
+        elif file.lower().endswith((".doc", ".xls", ".xlsx", ".docx",".pdf")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_OFFICE))
+        # the only startswith of the project
+        elif file.lower().startswith(("securemedias")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_LOGS))
+        elif file.lower().endswith((".zip", ".7z", ".rar", ".tgz")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_ZIP))
+        elif file.lower().endswith((".csv", ".txt", ".me", ".ini")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_TXT))
+
+
+if __name__ == '__main__':
+    main()
