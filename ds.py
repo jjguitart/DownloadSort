@@ -10,6 +10,7 @@ TO_ISO = '04-Iso'
 TO_OFFICE = '05-Office'
 TO_ZIP = '06-Zip'
 TO_TXT = '07-Txt'
+TO_HTML = '08-Html'
 
 
 
@@ -33,9 +34,9 @@ def move_file_to(file_path, folder_dest):
     shutil.move(file_path, dest_file)
 
 def main():
-    folder_to_sort = os.getcwd()
+    # folder_to_sort = os.getcwd()
     # folder_to_sort = os.path.expanduser('c:/users/pepino/Downloads')
-
+    folder_to_sort = os.path.expanduser('c:/Users/jguitart/Downloads')
 
     for file in os.listdir(folder_to_sort):
         if file.lower().endswith((".jpg", ".gif", ".jpeg", "bmp", ".png")):
@@ -50,7 +51,7 @@ def main():
         elif file.lower().endswith((".iso")):
             file_path = os.path.join(folder_to_sort, file)
             move_file_to(file_path, os.path.join(folder_to_sort, TO_ISO))
-        elif file.lower().endswith((".doc", ".xls", ".xlsx", ".docx",".pdf")):
+        elif file.lower().endswith((".doc", ".xls", ".xlsx", ".docx",".pdf", ".pptx")):
             file_path = os.path.join(folder_to_sort, file)
             move_file_to(file_path, os.path.join(folder_to_sort, TO_OFFICE))
         # the only startswith of the project
@@ -63,6 +64,9 @@ def main():
         elif file.lower().endswith((".csv", ".txt", ".me", ".ini")):
             file_path = os.path.join(folder_to_sort, file)
             move_file_to(file_path, os.path.join(folder_to_sort, TO_TXT))
+        elif file.lower().endswith((".html", ".php")):
+            file_path = os.path.join(folder_to_sort, file)
+            move_file_to(file_path, os.path.join(folder_to_sort, TO_HTML))
 
 
 if __name__ == '__main__':
